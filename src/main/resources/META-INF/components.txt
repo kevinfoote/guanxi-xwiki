@@ -1,0 +1,2 @@
+org.guanxi.xwiki.authenticator.shibboleth.internal.DefaultHelloWorld
+org.guanxi.xwiki.authenticator.shibboleth.internal.HelloWorldScriptService
