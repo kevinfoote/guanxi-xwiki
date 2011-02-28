@@ -29,6 +29,7 @@ import com.xpn.xwiki.web.XWikiRequest;
 import com.xpn.xwiki.doc.XWikiDocument;
 import com.xpn.xwiki.objects.classes.BaseClass;
 import com.xpn.xwiki.objects.BaseObject;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ecs.xhtml.map;
@@ -42,14 +43,23 @@ import java.util.Map;
 public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
   private static final Log log = LogFactory.getLog(GuanxiAuthenticator.class);
 
+  /*
+   *
+   */
   public XWikiUser checkAuth(XWikiContext context) throws XWikiException {
     return super.checkAuth(context);
   }
 
+  /*
+   *
+   */
   public void showLogin(XWikiContext context) throws XWikiException {
     super.showLogin(context);
   }
 
+  /*
+   *
+   */
   public Principal authenticate(String username, String password, XWikiContext context) throws XWikiException {
     Principal principal = null;
 
@@ -70,6 +80,9 @@ public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
     return principal;
   }
 
+  /*
+   *
+   */
   private Principal createUserFromAttributes(XWikiContext context) throws XWikiException {
     try {
       BaseClass baseclass = context.getWiki().getUserClass(context);
@@ -106,6 +119,9 @@ public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
     }
   }
 
+  /*
+   *
+   */
   private Principal getUserPrincipal(String susername, XWikiContext context) {
       Principal principal = null;
 
