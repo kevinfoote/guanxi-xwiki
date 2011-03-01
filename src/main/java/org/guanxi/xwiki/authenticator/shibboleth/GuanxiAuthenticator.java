@@ -46,6 +46,9 @@ public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
 
   //private static GuanxiAuthConfiguration config;
 
+  //static {
+  //  config = ShibAuthConfigLoader.getShibAuthConfiguration(null);
+  //}
   /*
    * Authenticates the incomming user.
    *
@@ -58,7 +61,7 @@ public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
 
     if ((user == null) || user.equals("")) {
        log.debug("GuanxiAuthenticatorServiceImpl: REMOTE_USER not set.");
-    } else if ( /*is set header prop*/ ) {
+    } else if ( /*is set header prop*/ 0) {
        // NEED settings file to be defined here.. 
        // grab the header name and get user
     } else {
@@ -67,7 +70,7 @@ public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
        user = "XWiki." + user;
     } 
     context.setUser(user);
-    log.debug("SSOAuthServiceImpl: authentication successful for user " + user);
+    log.debug("GuanxiAuthenticatorServiceImpl: authentication successful for user " + user);
     return new XWikiUser(user);
   }
 
