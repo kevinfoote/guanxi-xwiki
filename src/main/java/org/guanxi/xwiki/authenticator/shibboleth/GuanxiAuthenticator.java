@@ -41,13 +41,34 @@ import java.util.Enumeration;
 import java.util.Map;
 
 public class GuanxiAuthenticator extends XWikiAuthServiceImpl {
+
   private static final Log log = LogFactory.getLog(GuanxiAuthenticator.class);
 
+  //private static GuanxiAuthConfiguration config;
+
   /*
+   * Authenticates the incomming user.
    *
    */
   public XWikiUser checkAuth(XWikiContext context) throws XWikiException {
-    return super.checkAuth(context);
+    
+    log.debug("GuanxiAuthenticator.checkAuth");
+    
+    String user = context.getRequest().getRemoteUser();
+
+    if ((user == null) || user.equals("")) {
+       log.debug("GuanxiAuthenticatorServiceImpl: REMOTE_USER not set.");
+    } else if ( /*is set header prop*/ ) {
+       // NEED settings file to be defined here.. 
+       // grab the header name and get user
+    } else {
+       user = user.toLowerCase();
+       createUserFromAttributes(user,context);
+       user = "XWiki." + user;
+    } 
+    context.setUser(user);
+    log.debug("SSOAuthServiceImpl: authentication successful for user " + user);
+    return new XWikiUser(user);
   }
 
   /*
